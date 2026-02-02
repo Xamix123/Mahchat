@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Main</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="css/pages/main.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+</head>
+
+<body data-page="main">
+
+<div class="app">
+
+    <!-- LEFT: servers -->
+    <aside class="servers">
+        <div class="server server--active">
+            <img src="assets/logo.png" alt="App logo" />
+        </div>
+
+        <div class="server">server1</div>
+        <div class="server">server2</div>
+        <div class="server">server3</div>
+        <div class="server">server4</div>
+        <div class="server">server5</div>
+
+        <div class="server server--add">+</div>
+    </aside>
+
+    <!-- LEFT-MIDDLE: friends -->
+    <aside class="users">
+        <h2 class="users__title">Chat users</h2>
+
+        <input class="users__search" type="text" placeholder="Search users..." />
+
+        <ul class="users__list">
+            <li class="user user--active">
+                <span class="user__avatar"></span>
+                <span class="user__name">User1</span>
+            </li>
+
+            <li class="user">
+                <span class="user__avatar"></span>
+                <span class="user__name">User2</span>
+            </li>
+
+            <li class="user">
+                <span class="user__avatar"></span>
+                <span class="user__name">User3</span>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- RIGHT: chat -->
+    <main class="chat">
+
+        <!-- chat header -->
+        <header class="chat__header">
+            <span class="avatar"></span>
+            <span class="chat__title">User1</span>
+        </header>
+
+        <!-- messages -->
+        <section class="chat__messages">
+            <div class="message">
+                <span class="avatar"></span>
+                <div class="message__content">
+                    <span class="author">user1</span>
+                    <span class="time">24.01.26 20:16</span>
+                    <p>ping</p>
+                </div>
+            </div>
+
+            <div class="message">
+                <span class="avatar"></span>
+                <div class="message__content">
+                    <span class="author">user</span>
+                    <span class="time">24.01.26 20:16</span>
+                    <p>pong!</p>
+                </div>
+            </div>
+
+            <div class="message">
+                <span class="avatar"></span>
+                <div class="message__content">
+                    <span class="author">user1</span>
+                    <span class="time">24.01.26 20:16</span>
+                    <p>how are you?</p>
+                </div>
+            </div>
+
+            <div class="message">
+                <span class="avatar"></span>
+                <div class="message__content">
+                    <span class="author">user</span>
+                    <span class="time">24.01.26 20:16</span>
+                    <p>cool =)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- input -->
+        <footer class="chat__input">
+            <button class="chat__attach">+</button>
+            <input type="text" placeholder="enter..." />
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>

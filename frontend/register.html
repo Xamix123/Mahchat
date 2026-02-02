@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registration</title>
+
+    <!-- Base styles -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+
+    <!-- Page styles -->
+    <link rel="stylesheet" href="css/pages/auth.css" />
+</head>
+<body data-page="register">
+    <div id="notification" class="notification hidden"></div>
+    <main class="auth">
+        <section class="auth__card">
+            <h1 class="auth__title">Registration</h1>
+
+            <form class="auth__form" id="register-form" novalidate>
+                <div class="form-field">
+                    <label for="nickname" class="visually-hidden">Nickname</label>
+                    <input
+                        type="text"
+                        id="nickname"
+                        name="nickname"
+                        placeholder="Nickname"
+                        autocomplete="nickname"
+                        required
+                    />
+                </div>
+
+                <div class="form-field">
+                    <label for="email" class="visually-hidden">E-mail</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="E-mail"
+                        autocomplete="email"
+                        required
+                    />
+                </div>
+
+                <div class="form-field">
+                    <label for="password" class="visually-hidden">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        autocomplete="new-password"
+                        required
+                    />
+                </div>
+
+                <div class="form-field">
+                    <label for="passwordConfirm" class="visually-hidden">
+                        Password confirmation
+                    </label>
+                    <input
+                        type="password"
+                        id="passwordConfirm"
+                        name="passwordConfirm"
+                        placeholder="Password confirmation"
+                        autocomplete="new-password"
+                        required
+                    />
+                </div>
+
+                <button type="submit" class="auth__button">
+                    Register
+                </button>
+                <!-- delete after testing -->
+                <div class="form-field">
+                <label>
+                    <input type="checkbox" name="checker" id="checker" />
+                    Checker (test only)
+                </label>
+                </div>
+                <!-- to here -->
+            </form>
+        </section>
+    </main>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>

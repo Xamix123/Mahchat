@@ -1,0 +1,17 @@
+/* 
+   Global CSS reset
+   Normalizes default browser styles across all pages
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #ffffff;
+}

@@ -1,6 +1,11 @@
 import uvicorn
-from User.Controller.AuthController import app
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from user_service.controller.user_controller import UserController
+
+app = FastAPI()
+
+app.include_router(UserController().router)
 
 app.add_middleware(
     CORSMiddleware,

@@ -4,4 +4,3 @@ from typing import Optional
 class LoginRequest(BaseModel):
     email: str
     password: str
-    checker: Optional[bool] = None

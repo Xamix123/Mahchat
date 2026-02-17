@@ -24,7 +24,7 @@ export async function login(email, password, checker) {
 }
 
 export async function register(formData) {
-    const response = await fetch('http://localhost:8000/registation', {
+    const response = await fetch('http://localhost:8000/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

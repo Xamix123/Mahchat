@@ -2,10 +2,13 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from user_service.controller.user_controller import UserController
+from common_lib_service.service.expection_handler import ExceptionHandler
 
 app = FastAPI()
 
 app.include_router(UserController().router)
+
+ExceptionHandler.register(app)
 
 app.add_middleware(
     CORSMiddleware,

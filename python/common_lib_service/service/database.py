@@ -1,29 +1,34 @@
 import os
-from dotenv import load_dotenv
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, Session
 
-load_dotenv()
 
-DB_USER = os.getenv("DB_USER")
-DB_PASSWORD = os.getenv("DB_PASSWORD")
-DB_SERVER = os.getenv("DB_SERVER")
-DB_NAME = os.getenv("DB_NAME")
-DB_DRIVER = os.getenv("DB_DRIVER") 
+DB_USER = os.environ["POSTGRES_USER"]
+DB_PASSWORD = os.environ["POSTGRES_PASSWORD"]
+DB_NAME = os.environ["POSTGRES_DB"]
+DB_HOST = os.environ["DB_HOST"]
+DB_PORT = os.environ["DB_PORT"]
+
 
 class Database:
     def __init__(self):
-        self.session_maker = self._make_session()
-
-    def _make_connection(self):
-        connection_string = (
-            f"mssql+pyodbc://{DB_USER}:{DB_PASSWORD}@{DB_SERVER}/{DB_NAME}"
-            f"?driver={DB_DRIVER}&Encrypt=yes&TrustServerCertificate=yes"
+        self.engine = self._create_engine()
+        self.SessionLocal = sessionmaker(
+            bind=self.engine,
+            autoflush=False,
+            autocommit=False
         )
-        return create_engine(connection_string)
 
-    def _make_session(self):
-        return sessionmaker(bind=self._make_connection())()
+    def _create_engine(self):
+        connection_string = (
+            f"postgresql+psycopg2://"
+            f"{DB_USER}:{DB_PASSWORD}"
+            f"@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+        )
 
-    def get_session(self):
-        return self.session_maker
+        print("Connection:", connection_string)
+
+        return create_engine(connection_string, echo=True)
+
+    def get_session(self) -> Session:
+        return self.SessionLocal()

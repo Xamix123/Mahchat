@@ -1,12 +1,34 @@
-from abc import ABC, abstractmethod
+from abc import ABC
+from fastapi.responses import JSONResponse
+from fastapi.encoders import jsonable_encoder
 
 class BaseController(ABC):
     def __init__(self):
         self.logger = self.get_logger()
 
     def get_logger(self):
-        # возврат общего логгера
-        ...
+        pass
 
-    def format_response(self, data, status=200):
-        return {"data": data, "status": status}
+    def success(self, data=None, status_code=200):
+
+        body = {
+            "success": True,
+            "data": jsonable_encoder(data) if data is not None else None
+        }
+
+        return JSONResponse(
+            status_code=status_code,
+            content=body
+        )
+
+    def error(self, message: str, status_code=400):
+
+        body = {
+            "success": False,
+            "error": message
+        }
+
+        return JSONResponse(
+            status_code=status_code,
+            content=body
+        )

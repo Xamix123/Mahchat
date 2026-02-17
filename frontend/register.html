@@ -21,14 +21,16 @@
 
             <form class="auth__form" id="register-form" novalidate>
                 <div class="form-field">
-                    <label for="nickname" class="visually-hidden">Nickname</label>
+                    <label for="login" class="visually-hidden">Nickname</label>
                     <input
                         type="text"
-                        id="nickname"
-                        name="nickname"
-                        placeholder="Nickname"
-                        autocomplete="nickname"
+                        id="login"
+                        name="Login"
+                        placeholder="Login"
+                        autocomplete="login"
                         required
+                        minlength="3"
+                        maxlength="50"
                     />
                 </div>
 
@@ -53,6 +55,7 @@
                         placeholder="Password"
                         autocomplete="new-password"
                         required
+                        minlength="8"
                     />
                 </div>
 
@@ -67,20 +70,13 @@
                         placeholder="Password confirmation"
                         autocomplete="new-password"
                         required
+                        minlength="8"
                     />
                 </div>
 
                 <button type="submit" class="auth__button">
                     Register
                 </button>
-                <!-- delete after testing -->
-                <div class="form-field">
-                <label>
-                    <input type="checkbox" name="checker" id="checker" />
-                    Checker (test only)
-                </label>
-                </div>
-                <!-- to here -->
             </form>
         </section>
     </main>

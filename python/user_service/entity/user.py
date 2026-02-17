@@ -1,15 +1,23 @@
-from sqlalchemy import Column, Integer, String, Boolean, DateTime
-from sqlalchemy.ext.declarative import declarative_base
-from datetime import datetime, timezone
-Base = declarative_base()
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy import String, Integer, Boolean, DateTime, func
+from user_service.entity.base import Base
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from user_service.entity.contact_info import ContactInfo
+
 
 class User(Base):
-    __tablename__ = 'User'
+    __tablename__ = "app_user"
 
-    id = Column("Id", Integer, primary_key=True, autoincrement=True)
-    login = Column("Login", String(255))
-    password = Column("Password", String(500))
-    blocked = Column("Blocked", Boolean, default=False)
-    deleted = Column("Deleted", Boolean, default=False)
-    created_at = Column("CreatedAt", DateTime, default=(lambda: datetime.now(timezone.utc)))
-    updated_at = Column("UpdatedAt", DateTime, default=(lambda: datetime.now(timezone.utc)), onupdate=(lambda: datetime.now(timezone.utc)))
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    login: Mapped[str] = mapped_column(String(50), unique=True, nullable=False)
+    password_hash: Mapped[str] = mapped_column(String(255), nullable=False)
+    created_at: Mapped[DateTime] = mapped_column(DateTime, default=func.now())
+    deleted: Mapped[bool] = mapped_column(Boolean, default=False)
+
+    contact_info: Mapped["ContactInfo"] = relationship(
+    back_populates="user",
+    uselist=False,
+    cascade="all, delete-orphan"
+)

@@ -8,7 +8,8 @@
     <!-- Base styles -->
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/components/components.css" />
+    <link rel="stylesheet" href="css/components/inputs.css" />
 
     <!-- Page styles -->
     <link rel="stylesheet" href="css/pages/auth.css" />
@@ -60,13 +61,13 @@
                 </div>
 
                 <div class="form-field">
-                    <label for="passwordConfirm" class="visually-hidden">
+                    <label for="password_confirmation" class="visually-hidden">
                         Password confirmation
                     </label>
                     <input
                         type="password"
-                        id="passwordConfirm"
-                        name="passwordConfirm"
+                        id="password_confirmation"
+                        name="password_confirmation"
                         placeholder="Password confirmation"
                         autocomplete="new-password"
                         required
@@ -77,6 +78,10 @@
                 <button type="submit" class="auth__button">
                     Register
                 </button>
+                <p class="auth__hint">
+                    Already have an account?
+                    <a href="/">Log in</a>
+                </p>
             </form>
         </section>
     </main>

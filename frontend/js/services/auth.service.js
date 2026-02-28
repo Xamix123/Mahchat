@@ -1,13 +1,13 @@
 import { saveToken } from '../utils/storage.js';
 
 /* стоит посмотреть можно ли url вынести в какую нить конфигурацию */
-export async function login(email, password, checker) {
+export async function login(login, password) {
     const response = await fetch('http://localhost:8000/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password, checker}),
+        body: JSON.stringify({ login, password}),
     });
 
     const data = await response.json().catch(() => ({}));

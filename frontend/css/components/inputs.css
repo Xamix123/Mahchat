@@ -1,0 +1,13 @@
+.form-field input {
+    border: 2px solid transparent;
+}
+
+.form-field input.input-error {
+    border: 2px solid #e74c3c;
+}
+
+.form-field .error-message {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 4px;
+}

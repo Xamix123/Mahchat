@@ -15,8 +15,8 @@ export function validateRegister(data) {
         errors.password = "Password must be at least 8 characters"
 
     // password confirm
-    if (data.password !== data.passwordConfirm)
-        errors.passwordConfirm = "Passwords do not match"
+    if (data.password !== data.password_confirmation)
+        errors.password_confirmation = "Passwords do not match"
 
     return errors
 }
